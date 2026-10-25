@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: mfc-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CROSSMINT_ENV
+        value: staging
+      - key: CROSSMINT_SERVER_SIDE_API_KEY
+        sync: false
+      - key: CROSSMINT_CLIENT_SIDE_API_KEY
+        sync: false
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: CROSSMINT_API_BASE_URL
+        sync: false
+      - key: MFC_BACKEND_SHARED_TOKEN
+        sync: false
